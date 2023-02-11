@@ -1,2 +1,0 @@
-from models.Category_Model import CategoryModel
-from models.Product_Model import ProductModel
