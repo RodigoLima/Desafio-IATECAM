@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from models import Category
+from models.Category_model import Category
 
 class CategoryRepository:
     @staticmethod
@@ -9,12 +9,17 @@ class CategoryRepository:
 
     @staticmethod
     def save(db: Session, category: Category) -> Category:
-        if category.id:
-            db.merge(category)
-        else:
-            db.add(category)
+        db.add(category)
         db.commit()
         return category
+
+    @staticmethod
+    def update(db: Session, category: Category,id: int) -> Category:
+        category_up = db.query(Category).filter(Category.id == id).first()
+        category_up.name = category.name
+        db.merge(category_up)
+        db.commit()
+        return category_up
 
     @staticmethod
     def find_by_id(db: Session, id: int) -> Category:

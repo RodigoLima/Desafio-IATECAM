@@ -4,19 +4,18 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class Category(BaseModel):
+class CategoryBase(BaseModel):
     id: Optional[int]
     name:str
     
     class Config:
         orm_mode = True
         
-class Product(BaseModel):
-    id: Optional[int]
-    name:str
-    category: int
-    price: float
-    serie: int
+class CategoryRequest(CategoryBase):
+    ...
     
+class CategoryResponse(CategoryBase):
+    id: Optional[int]
+
     class Config:
-        orm_mode = True
+        orm_mode = True  

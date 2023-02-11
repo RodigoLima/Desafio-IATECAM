@@ -1,14 +1,7 @@
 
-from database import Base
+from core.database import Base
 from sqlalchemy import Column, Integer, String,ForeignKey,Float
 
-class Category(Base):
-    __tablename__ = "category"
-    
-    id: int = Column(Integer, primary_key=True,autoincrement=True)  
-    name: str = Column(String(128),nullable=False)  
-    
-    
 class Product(Base):
     __tablename__ = "product"
     
@@ -16,4 +9,6 @@ class Product(Base):
     name: str = Column(String(60),nullable=False)  
     category: int =  Column(Integer, ForeignKey('category.id'),nullable=False)
     price: float = Column(Float,nullable=False)
-    serie: int = Column(Integer,nullable=False)   
+    serie: int = Column(Integer,nullable=False)  
+    
+
