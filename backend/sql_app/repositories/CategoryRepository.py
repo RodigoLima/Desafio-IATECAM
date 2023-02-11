@@ -1,12 +1,14 @@
 # Importa a função Session do módulo sqlalchemy.orm
 from sqlalchemy.orm import Session
 
+# Importa a função HTTPException e status do módulo fastapi
+from fastapi import  HTTPException,status
 # Importa o modelo da categoria
 from models.Category_model import Category
 
 # Classe do repositório da categoria
 class CategoryRepository:
-    # Método para encontrar todas as categorias
+    # Método para encontrar todas as categorias    
     @staticmethod
     def find_all(session: Session) -> list[Category]:
         # Retorna uma lista de todos os objetos da categoria na sessão do banco de dados
@@ -15,6 +17,11 @@ class CategoryRepository:
     # Método para salvar uma categoria
     @staticmethod
     def save(session: Session, category: Category) -> Category:
+        
+        # Verifição de preenchimento de todos os campos 
+        if not all([category.name]):
+            raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Todos os campos são obrigatórios.")
+        
         # Adiciona a categoria à sessão
         session.add(category)
         # Efetua o commit na sessão para salvar a categoria no banco de dados
