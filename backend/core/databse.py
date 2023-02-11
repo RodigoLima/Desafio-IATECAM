@@ -1,16 +1,17 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy_utils import database_exists, create_database
+
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.asyncio import create_async_engine 
+from sqlalchemy.ext.asyncio import AsyncEngine
+from sqlalchemy.ext.asyncio import AsyncSession
+from core.configs import settings
 
 
-SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://root:123@localhost:3306/desafioiatecam"
-# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
+engine: AsyncEngine = create_async_engine(settings.DB_URL)
 
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+Session:  AsyncSession = sessionmaker(
+    autocomit=False,
+    autoflush=False,
+    expire_on_commit=False,
+    class_=AsyncSession,
+    bind=engine
 )
-
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base = declarative_base()
