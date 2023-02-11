@@ -17,6 +17,9 @@ class ProductRepository:
     def update(db: Session, product: Product,id: int) -> Product:
         product_up = db.query(Product).filter(Product.id == id).first()
         product_up.name = product.name
+        product_up.category = product.category
+        product_up.price = product.price
+        product_up.serie = product.serie
         db.merge(product_up)
         db.commit()
         return product_up
