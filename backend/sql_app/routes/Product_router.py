@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
-
+from validacoes.ProductValidacao import ProductValidacao
 from fastapi import APIRouter
 from models.Category_model import Category
 from models.Product_model import Product
@@ -15,6 +15,7 @@ router = APIRouter()
 
 @router.post("/api/products", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
 def create(request: ProductRequest, db: Session = Depends(get_db)):
+    ProductValidacao.vfr_all(Product(**request.dict()),db)
     products = ProductRepository.save(db, Product(**request.dict()))
     return ProductResponse.from_orm(products)
 
@@ -43,6 +44,7 @@ def delete_by_id(id: int, db: Session = Depends(get_db)):
 
 @router.put("/api/products/{id}", response_model=ProductResponse)
 def update(id: int, request: ProductRequest, db: Session = Depends(get_db)):
+    ProductValidacao.vfr_all(Product(**request.dict()),db)
     if not ProductRepository.exists_by_id(db, id):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Produto não encontrado"

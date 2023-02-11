@@ -3,18 +3,11 @@ from sqlalchemy.orm import Session
 
 # Importa a função HTTPException e status do módulo fastapi
 from fastapi import  HTTPException,status
-
 # Importa o modelo de Produto
 from models.Product_model import Product
 
 class ProductRepository:
-
-    
-    @staticmethod
-    def verifica_nroserie(serie: int):
-        if serie <= 0:
-            raise HTTPException(status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="O campo série só permitido números positivos." )
-    
+  
     # Método que retorna uma lista de todos os produtos no banco de dados   
     @staticmethod
     def find_all(session: Session) -> list[Product]:
@@ -25,14 +18,6 @@ class ProductRepository:
     @staticmethod
     def save(session: Session, product: Product) -> Product:
         
-        # Verifica se o número de série é positivo
-        ProductRepository.verifica_nroserie(product.serie)
-        
-        # Verifição de preenchimento de todos os campos 
-        if not all([product.name, product.category, product.price, product.serie]):
-            raise HTTPException(
-            status_code=status.HTTP_406_NOT_ACCEPTABLE, detail="Todos os campos são obrigatórios."
-        )
         # Adiciona o produto ao banco de dados
         session.add(product)
         # Salva as alterações no banco de dados
@@ -43,10 +28,7 @@ class ProductRepository:
     # Método que atualiza as informações de um produto existente no banco de dados
     @staticmethod
     def update(session: Session, product: Product,id: int) -> Product:
-        
-        # Verifica se o número de série é positivo
-        ProductRepository.verifica_nroserie(product.serie)
-        
+              
         # Busca o produto pelo id
         product_up = session.query(Product).filter(Product.id == id).first()
         # Atualiza as informações do produto
