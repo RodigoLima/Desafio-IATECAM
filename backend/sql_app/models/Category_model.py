@@ -7,7 +7,7 @@ from core.database import Base
 class Category(Base):
     """
     Classe que representa a tabela 'category' no banco de dados. Cada instância dessa classe 
-    representa uma linha na tabela que armazena informações sobre uma categoria dos produtos.
+    representa uma linha na tabela que armazena as informações sobre uma categoria dos produtos no sistema.
     """
     
     # Nome da tabela no banco de dados
