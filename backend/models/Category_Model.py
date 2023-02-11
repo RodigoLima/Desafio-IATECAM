@@ -6,4 +6,4 @@ class CategoryModel(settings.DBBaseModel):
     __tablename = "Category"
     
     id: int = Column(Integer, primary_key=True,autoincrement=True)  
-    name: str = Column(String(128))  
+    name: str = Column(String(128),nullable=False)  
