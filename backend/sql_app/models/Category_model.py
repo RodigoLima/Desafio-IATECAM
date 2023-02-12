@@ -1,5 +1,5 @@
 # Importa as classes necessárias para definir colunas em uma tabela de banco de dados
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String
 
 # Importa a classe Base da biblioteca 'database'
 from core.database import Base
