@@ -12,7 +12,7 @@ export class CategoriesService {
   constructor(private http: HttpClient) {}
 
   get_all() {
-    return this.http.get<Categories[]>('http://localhost:8000/api/categories/getallcategory',);
+    return this.http.get<Categories[]>('http://127.0.0.1:8000/api/categories/getallcategory',);
   }
 
 }
