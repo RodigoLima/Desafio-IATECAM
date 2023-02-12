@@ -15,6 +15,7 @@ FRONTEND desenvolvido para o desafio técnico IATECAM.
 Para executar o projeto, será necessário instalar/usar os seguintes programas:
 * [NodeJS 18.14.0 LTS](https://nodejs.org/en/)
 * [Angular CLI 15.1.4](https://angular.io/cli)
+* [Bootstrap](https://getbootstrap.com/)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Instalação 
