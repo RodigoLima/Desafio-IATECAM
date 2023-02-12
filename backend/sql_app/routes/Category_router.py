@@ -22,7 +22,7 @@ def create(request: CategoryRequest, db: Session = Depends(get_db)):
     return CategoryResponse.from_orm(category)
 
 # Rota do endpoint que retorna todas as categorias
-@router.get("/api/categories/getallCategory", response_model=list[CategoryResponse])
+@router.get("/api/categories/getallcategory", response_model=list[CategoryResponse])
 def find_all(db: Session = Depends(get_db)):
     # Busca por todas as categorias no banco de dados
     categories = CategoryRepository.find_all(db)
