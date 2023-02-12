@@ -3,22 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CategoriesModule } from './categories/categories.module';
 import { HomeComponent } from './home/home.component';
-import { AddCategoryComponent } from './add-category/add-category.component';
-import { EditCategoryComponent } from './edit-category/edit-category.component';
-import { ViewCategoryComponent } from './view-category/view-category.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AddCategoryComponent,
-    EditCategoryComponent,
-    ViewCategoryComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CategoriesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
