@@ -12,7 +12,7 @@ from schemas.Category_schema import CategoryRequest, CategoryResponse # Importa 
 router = APIRouter()
 
 # Rota do endpoint para criar uma categoria
-@router.post("/api/categories", response_model=CategoryResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/api/categories/createcategory", response_model=CategoryResponse, status_code=status.HTTP_201_CREATED)
 def create(request: CategoryRequest, db: Session = Depends(get_db)):
     # Validação da categoria antes de salvar no banco de dados
     CategoryValidacao.vfr_all(Category(**request.dict()),db)
@@ -22,7 +22,7 @@ def create(request: CategoryRequest, db: Session = Depends(get_db)):
     return CategoryResponse.from_orm(category)
 
 # Rota do endpoint que retorna todas as categorias
-@router.get("/api/categories", response_model=list[CategoryResponse])
+@router.get("/api/categories/getallCategory", response_model=list[CategoryResponse])
 def find_all(db: Session = Depends(get_db)):
     # Busca por todas as categorias no banco de dados
     categories = CategoryRepository.find_all(db)
@@ -30,7 +30,7 @@ def find_all(db: Session = Depends(get_db)):
     return [CategoryResponse.from_orm(category) for category in categories]
 
 # Rota do endpoint que retorna uma categoria pelo ID
-@router.get("/api/categories/{id}", response_model=CategoryResponse)
+@router.get("/api/categories/getcategorybyid/{id}", response_model=CategoryResponse)
 def find_by_id(id: int, db: Session = Depends(get_db)):
     # Obtem a categoria através de um ID
     category = CategoryRepository.find_by_id(db, id)
@@ -45,7 +45,7 @@ def find_by_id(id: int, db: Session = Depends(get_db)):
     return CategoryResponse.from_orm(category)
 
 # Rotas do endpoint para deletar uma categoria pelo ID
-@router.delete("/api/categories/{id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/api/categories/deletecategorybyid/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_by_id(id: int, db: Session = Depends(get_db)):
     # Verifica se a categoria com o ID especificado existe na base de dados
     if not CategoryRepository.exists_by_id(db, id):
@@ -60,7 +60,7 @@ def delete_by_id(id: int, db: Session = Depends(get_db)):
 
 
 # Rotas do endpoint para atualizar uma categoria pelo ID
-@router.put("/api/categories/{id}", response_model=CategoryResponse)
+@router.put("/api/categories/updatecategorybyid/{id}", response_model=CategoryResponse)
 def update(id: int, request: CategoryRequest, db: Session = Depends(get_db)):
     # Valida os dados da categoria
     CategoryValidacao.vfr_all(Category(**request.dict()),db)
