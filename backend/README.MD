@@ -23,7 +23,8 @@ Para executar o projeto, será necessário instalar/usar os seguintes programas:
 Para executar esse repositório baixe-o e siga os passos abaixos:
 1. Baixe e instale o python na versão 3.11.2
 2. Baixae e instale o banco de dado MariaDb na versão 10.11.1 RC <br>
-    2.1. A conexão do banco de dados está configurado para acessar pelo usuário: root e senha: 123. Caso seja necessário mudar altere os arquivos backend\sql_app\core\database.py e backend\sql_app\automat_db\create_db.py
+    2.1. A conexão do banco de dados está configurado para acessar pelo usuário: root e senha: 123. Então na instalação configure dessa forma.
+    Caso seja necessário mudar. altere os arquivos backend\sql_app\core\database.py e backend\sql_app\automat_db\create_db.py
 3. Para instalar as outras dependências entre nas pastas (backend/sql_app) e execute o arquivo: requirements.txt, da seguinte forma: pip install r- requirements.txt
 
 ## Execução do BackEnd
