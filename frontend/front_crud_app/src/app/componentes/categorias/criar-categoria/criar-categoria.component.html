@@ -1,0 +1,14 @@
+<section class="container criar-categorias ff-inter">
+  <header class="header">
+    <h2>Adicione uma nova categoria:</h2>
+  </header>
+  <form>
+    <label for="categoria">Nome</label>
+    <input type="textarea" class="input" id="name" name="name" placeholder="Digite o nome da categoria" [(ngModel)]="categoria.name">
+
+  </form>
+  <div class="acoes">
+    <button (click)="criar_categoria()" class="botao">Salvar</button>
+    <button (click)="cancelar_criacao_categoria()" class="botao">Cancelar</button>
+  </div>
+</section>

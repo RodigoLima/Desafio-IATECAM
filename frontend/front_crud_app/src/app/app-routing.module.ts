@@ -1,14 +1,35 @@
-import { NgModule } from '@angular/core';
+import { EditarCategoriaComponent } from './componentes/categorias/editar-categoria/editar-categoria.component';
+import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
+import { ListarCategoriasComponent } from './componentes/categorias/listar-categorias/listar-categorias.component';
+import { CriarCategoriaComponent } from './componentes/categorias/criar-categoria/criar-categoria.component';
+
+
+import { NgModule, Component, createComponent } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'categories/home',
-    pathMatch: 'full',
+    redirectTo: `listarCategoria`,
+    pathMatch: 'full'
   },
-
+  {
+    path: "criarCategoria",
+    component: CriarCategoriaComponent
+  },
+  {
+    path: "listarCategoria",
+    component: ListarCategoriasComponent
+  },
+  {
+    path: "excluirCategoria/:id",
+    component: ExcluirCategoriaComponent
+  },
+  {
+    path: "editarCategoria/:id",
+    component: EditarCategoriaComponent
+  }
 ];
 
 @NgModule({

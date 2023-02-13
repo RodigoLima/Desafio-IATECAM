@@ -4,18 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CategoriesModule } from './categories/categories.module';
+
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CriarCategoriaComponent } from './componentes/categorias/criar-categoria/criar-categoria.component';
+import { ListarCategoriasComponent } from './componentes/categorias/listar-categorias/listar-categorias.component';
+import { CategoriaComponent } from './componentes/categorias/categoria/categoria.component';
+import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
+import { EditarCategoriaComponent } from './componentes/categorias/editar-categoria/editar-categoria.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CriarCategoriaComponent,
+    ListarCategoriasComponent,
+    CategoriaComponent,
+    ExcluirCategoriaComponent,
+    EditarCategoriaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CategoriesModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
