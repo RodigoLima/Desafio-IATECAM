@@ -47,6 +47,7 @@ def find_by_id(id: int, db: Session = Depends(get_db)):
 # Rotas do endpoint para deletar uma categoria pelo ID
 @router.delete("/api/categories/deletecategorybyid/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_by_id(id: int, db: Session = Depends(get_db)):
+    CategoryValidacao.vrf_category_product_exists(id,db)
     # Verifica se a categoria com o ID especificado existe na base de dados
     if not CategoryRepository.exists_by_id(db, id):
         # Caso não exista, uma exceção HTTP é gerada

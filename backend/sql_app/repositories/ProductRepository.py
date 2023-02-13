@@ -48,6 +48,10 @@ class ProductRepository:
     def find_by_id(session: Session, id: int) -> Product:
         # Retorna o primeiro produto encontrado com o id especificado
         return session.query(Product).filter(Product.id == id).first()
+    
+    def find_by_id_category_produt(session: Session, id: int) -> Product:
+        # Retorna o primeiro produto encontrado com o id especificado da categoria
+        return session.query(Product).filter(Product.category == id).first()
 
     # Método que verifica se um produto com o id especificado existe no banco de dados
     @staticmethod

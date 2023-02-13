@@ -15,6 +15,7 @@ export class ExcluirCategoriaComponent {
     name: ''
   }
 
+
   constructor(
     private service: CategoriaService,
     private router: Router,
@@ -32,7 +33,14 @@ export class ExcluirCategoriaComponent {
     if(this.categoria.id) {
       this.service.delete(this.categoria.id).subscribe(() => {
         this.router.navigate(['listarCategoria'])
-      })
+      },
+      (err) =>{
+        alert("Falha na exclusão, categoria vinculado ao produto.")
+
+        this.router.navigate(['listarCategoria'])
+      }
+
+      )
     }
   }
 

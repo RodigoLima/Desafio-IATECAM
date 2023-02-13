@@ -12,6 +12,10 @@ import { ListarCategoriasComponent } from './componentes/categorias/listar-categ
 import { CategoriaComponent } from './componentes/categorias/categoria/categoria.component';
 import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
 import { EditarCategoriaComponent } from './componentes/categorias/editar-categoria/editar-categoria.component';
+import { ProdutoComponent } from './component/produtos/produto/produto.component';
+import { CriarProdutoComponent } from './componentes/produtos/criar-produto/criar-produto.component';
+import { EditarProdutoComponent } from './componentes/produtos/editar-produto/editar-produto.component';
+import { ExcluirProdutoComponent } from './componentes/produtos/excluir-produto/excluir-produto.component';
 
 
 
@@ -22,7 +26,11 @@ import { EditarCategoriaComponent } from './componentes/categorias/editar-catego
     ListarCategoriasComponent,
     CategoriaComponent,
     ExcluirCategoriaComponent,
-    EditarCategoriaComponent
+    EditarCategoriaComponent,
+    ProdutoComponent,
+    CriarProdutoComponent,
+    EditarProdutoComponent,
+    ExcluirProdutoComponent
   ],
   imports: [
     BrowserModule,

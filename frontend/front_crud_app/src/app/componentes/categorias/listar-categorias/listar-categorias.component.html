@@ -4,11 +4,10 @@
     <button routerLink="/criarCategoria" class="botao">Adicionar categoria</button>
   </header>
   <div class="lista-categorias" *ngIf="listaCategorias.length > 0, else semCategorias">
-    <div *ngFor="let categoria of listaCategorias">
-      <app-categoria [categoria]="categoria"></app-categoria>
-    </div>
-
+    <app-categoria>
+    </app-categoria>
   </div>
+
 </section>
 <ng-template #semCategorias>
   <div class="ff-inter sem-categorias">

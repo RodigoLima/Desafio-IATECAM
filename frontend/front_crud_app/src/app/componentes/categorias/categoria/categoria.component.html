@@ -1,12 +1,22 @@
-<div class="">
-  <p class="id">{{categoria.id}}</p>
-  <p class="name">{{ categoria.name }}</p>
-  <div class="acoes">
-    <button class="botao-editar" routerLink="/editarCategoria/{{categoria.id}}">
-      <img src="/assets/imagens/icone-editar.png" alt="Ícone de editar">
-    </button>
-    <button class="botao-excluir" routerLink="/excluirCategoria/{{categoria.id}}">
-      <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir">
-    </button>
-  </div>
-</div>
+<table class="ff-inter">
+  <thead>
+    <tr>
+      <th scope="col">Id Categoria</th>
+      <th scope="col">Nome Categoria</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="" *ngFor="let categoria of listaCategorias">
+      <td> {{categoria.id}}</td>
+      <td> {{ categoria.name }}</td>
+      <td> <button class="botao-editar" routerLink="/editarCategoria/{{categoria.id}}">
+          <img src="/assets/imagens/icone-editar.png" alt="Ícone de editar">
+        </button></td>
+      <td>    <button class="botao-excluir" routerLink="/excluirCategoria/{{categoria.id}}">
+        <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir">
+      </button></td>
+    </tr>
+  </tbody>
+</table>
