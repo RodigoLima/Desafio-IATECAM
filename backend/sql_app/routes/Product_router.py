@@ -12,7 +12,7 @@ from schemas.Product_schema import ProductRequest, ProductResponse
 router = APIRouter()
 
 # Rota do endpoint para criar um produto
-@router.post("/api/products", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/api/products/createproduct", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
 def create(request: ProductRequest, db: Session = Depends(get_db)):
     # Valida os dados do produto antes de salvar no banco
     ProductValidacao.vfr_all(Product(**request.dict()), db)
@@ -22,7 +22,7 @@ def create(request: ProductRequest, db: Session = Depends(get_db)):
     return ProductResponse.from_orm(products)
 
 # Rota para listar todos os produtos
-@router.get("/api/products", response_model=list[ProductResponse])
+@router.get("/api/products/getallproduct", response_model=list[ProductResponse])
 def find_all(db: Session = Depends(get_db)):
     # Busca todos os produtos no banco de dados
     products = ProductRepository.find_all(db)
@@ -30,7 +30,7 @@ def find_all(db: Session = Depends(get_db)):
     return [ProductResponse.from_orm(product) for product in products]
 
 # Rota do endpoint que retorna um produto pelo ID
-@router.get("/api/products/{id}", response_model=ProductResponse)
+@router.get("/api/products/getproductbyid/{id}", response_model=ProductResponse)
 def find_by_id(id: int, db: Session = Depends(get_db)):
     # Busca um produto no banco de dados pelo ID
     product = ProductRepository.find_by_id(db, id)
@@ -43,7 +43,7 @@ def find_by_id(id: int, db: Session = Depends(get_db)):
     return ProductResponse.from_orm(product)
 
 # Rotas do endpoint para deletar uma produto pelo ID
-@router.delete("/api/products/{id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/api/products/deleteproductbyid/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_by_id(id: int, db: Session = Depends(get_db)):
     # Verifica se o produto existe antes de deletar
     if not ProductRepository.exists_by_id(db, id):
@@ -54,7 +54,7 @@ def delete_by_id(id: int, db: Session = Depends(get_db)):
     ProductRepository.delete_by_id(db, id)
 
 # Rotas do endpoint para atualizar um produto pelo ID
-@router.put("/api/products/{id}", response_model=ProductResponse)
+@router.put("/api/products/updateproductbyid/{id}", response_model=ProductResponse)
 def update(id: int, request: ProductRequest, db: Session = Depends(get_db)):
     # Realiza as validações no objeto produto
     ProductValidacao.vfr_all(Product(**request.dict()),db)
