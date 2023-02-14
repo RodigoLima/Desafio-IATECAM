@@ -16,7 +16,7 @@
     </div>
   </form>
   <div class="acoes">
-    <button   (click)="validate()" (click)="criar_categoria()" class="botao">Salvar</button>
+    <button [disabled]="!formulario.valid"  (click)="validate()" (click)="criar_categoria()" class="botao">Salvar</button>
     <button (click)="cancelar_criacao_categoria()" class="botao">Cancelar</button>
   </div>
 
