@@ -49,6 +49,19 @@ export class CriarProdutoComponent {
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(60)
+      ]),
+      category: new FormControl(this.prod.category, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      price: new FormControl(this.prod.price, [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      serie: new FormControl(this.prod.serie, [
+        Validators.required,
+        Validators.min(1),
+        Validators.pattern('^(0|[1-9][0-9]*)$')
       ])
     }),
       this.servicecat.get_all().subscribe((data) => {
@@ -62,6 +75,15 @@ export class CriarProdutoComponent {
 
   get name() {
     return this.formulario.get('name')!;
+  }
+  get category() {
+    return this.formulario.get('category')!;
+  }
+  get price() {
+    return this.formulario.get('price')!;
+  }
+  get serie() {
+    return this.formulario.get('serie')!;
   }
 
   public validate(): void {
@@ -77,7 +99,8 @@ export class CriarProdutoComponent {
 
 
   criar_produto() {
-    this.serviceprod.create(this.produto).subscribe(() => {
+
+    this.serviceprod.create(this.formulario.value).subscribe(() => {
       this.router.navigate(['listarProduto'])
     })
   }

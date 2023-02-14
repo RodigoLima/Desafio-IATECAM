@@ -5,7 +5,7 @@
   <form [formGroup]="formulario" #form="ngForm">
     <label for="categoria">Nome</label>
     <input type="textarea" formControlName="name" class="input" id="name" name="name"
-      placeholder="Digite o nome da categoria" [(ngModel)]="categoria.name">
+      placeholder="Digite o nome da categoria" >
     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
       <div *ngIf="name.errors?.['required']">
        <p>O campo nome é obrigatório.</p>

@@ -23,7 +23,8 @@ export class CriarCategoriaComponent implements OnInit {
 
   }
   constructor(private service: CategoriaService,
-    private router: Router
+    private router: Router,
+
   ) { this.cat = {} as ICat; }
 
   ngOnInit(): void {
@@ -52,9 +53,9 @@ export class CriarCategoriaComponent implements OnInit {
     this.cat = this.formulario.value;
 
   }
-
   criar_categoria() {
-    this.service.create(this.categoria).subscribe(() => {
+
+    this.service.create(this.formulario.value).subscribe(() => {
       this.router.navigate(['listarCategoria'])
     })
   }
