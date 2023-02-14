@@ -1,3 +1,6 @@
+import { EditarProdutoComponent } from './componentes/produtos/editar-produto/editar-produto.component';
+import { ExcluirProdutoComponent } from './componentes/produtos/excluir-produto/excluir-produto.component';
+import { CriarProdutoComponent } from './componentes/produtos/criar-produto/criar-produto.component';
 import { ListarProdutoComponent } from './componentes/produtos/listar-produto/listar-produto.component';
 import { EditarCategoriaComponent } from './componentes/categorias/editar-categoria/editar-categoria.component';
 import { ExcluirCategoriaComponent } from './componentes/categorias/excluir-categoria/excluir-categoria.component';
@@ -20,12 +23,25 @@ const routes: Routes = [
     component: ListarProdutoComponent
   },
   {
-    path: "criarCategoria",
-    component: CriarCategoriaComponent
+    path: "criarProduto",
+    component: CriarProdutoComponent
   },
+  {
+    path: "excluirProduto/:id",
+    component: ExcluirProdutoComponent
+  },
+  {
+    path: "editarProduto/:id",
+    component: EditarProdutoComponent
+  },
+
   {
     path: "listarCategoria",
     component: ListarCategoriasComponent
+  },
+  {
+    path: "criarCategoria",
+    component: CriarCategoriaComponent
   },
   {
     path: "excluirCategoria/:id",

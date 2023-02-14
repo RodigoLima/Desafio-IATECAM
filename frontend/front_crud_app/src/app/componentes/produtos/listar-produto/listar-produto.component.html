@@ -1,7 +1,7 @@
 <section class="container">
   <header class="header d-flex">
     <h2 class="ff-inter">Produtos</h2>
-    <button routerLink="/criarCategoria" class="botao">Adicionar Produto</button>
+    <button routerLink="/criarProduto" class="botao">Adicionar Produto</button>
   </header>
   <div class="lista-produtos" *ngIf="listaProdutos.length > 0, else semProdutos">
     <app-produto></app-produto>
@@ -9,7 +9,7 @@
 
 </section>
 <ng-template #semProdutos>
-  <div class="ff-inter sem-categorias">
-    <p>Ainda não há categorias cadastradas!</p>
+  <div class="ff-inter sem-produtos">
+    <p>Ainda não há produtos cadastrados!</p>
   </div>
 </ng-template>

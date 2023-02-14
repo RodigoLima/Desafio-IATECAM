@@ -16,6 +16,7 @@ export class ProdutoService {
   }
 
   create(categoria: Produto):Observable<Produto> {
+
     return this.http.post<Produto>('http://127.0.0.1:8000/api/products/createproduct', categoria);
   }
 
