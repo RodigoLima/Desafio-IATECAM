@@ -25,8 +25,10 @@ Para executar o projeto, será necessário instalar/usar os seguintes programas:
 Para executar esse repositório baixe-o e siga os passos abaixos:
 1. Baixe e instale o NodeJS 18.14.0 LTS
 2. Instale Angular CLI via npm pelo comando: npm install -g @angular/cli@15.1.4
-3. Execute o comando: npm install <br>
-    Para instalar as dependencias do projeto.
+3. Baixe o reposítorio ou realize um git clone.
+4. Abra o visual Visual Studio Code e navegar até a pasta frontend\front_crud_app atráves do comando cd
+5. Na pasta anterior indicada, execute o comando: npm install <br>
+    Para instalar as dependencias do frontend.
 
 ## Execução do BackEnd
 Para executar o frontend entre nas pastas(frontend/front_app_crud) e execute o seguinte comando: ng serve --o
