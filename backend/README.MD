@@ -29,4 +29,4 @@ Para executar esse repositório baixe-o e siga os passos abaixos:
 4. Para instalar as outras dependências execute o arquivo: requirements.txt, da seguinte forma: pip install -r requirements.txt
 
 ## Execução do BackEnd
-Para executar o backend entre nas pastas(backend/sql_app) e execute o seguinte comando: uvicorn main:app --reload e o backend estará disponivel
+Para executar o backend entre nas pastas(backend/sql_app) e execute o seguinte comando: uvicorn main:app --reload 
