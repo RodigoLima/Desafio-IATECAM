@@ -27,7 +27,7 @@ Para executar esse repositório baixe-o e siga os passos abaixos:
     Caso seja necessário mudar. altere os arquivos backend\sql_app\core\database.py e backend\sql_app\automat_db\create_db.py , com os usuários senha definidos
 3. Baixe o reposítorio ou realize um git clone.
 4. Abra o visual Visual Studio Code e navegar até a pasta \backend\sql_app atráves do comando cd
-5. Para instalar as outras dependências execute o arquivo: requirements.txt, da seguinte forma: pip install -r requirements.txt
+5. Na pasta anterior indicada, para instalar as outras dependências do backend execute o arquivo: requirements.txt, da seguinte forma: pip install -r requirements.txt
 
 ## Execução do BackEnd
 Para executar o backend entre nas pastas(backend/sql_app) e execute o seguinte comando: uvicorn main:app --reload 
