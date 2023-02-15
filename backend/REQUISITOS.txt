@@ -1,3 +1,0 @@
-PYTHON 3.11.2
-
-maria db 10.11.rc

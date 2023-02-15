@@ -1,0 +1,28 @@
+<table class="ff-inter">
+  <thead>
+    <tr>
+      <th scope="col">Id Produto</th>
+      <th scope="col">Nome Dispositivo</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Serie</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="" *ngFor="let produto of listaProdutos">
+      <td> {{ produto.id }}</td>
+      <td> {{ produto.name }}</td>
+      <td> {{ produto.category }}</td>
+      <td> {{ produto.price }}</td>
+      <td> {{ produto.serie }}</td>
+      <td> <button class="botao-editar" routerLink="/editarProduto/{{produto.id}}">
+          <img src="/assets/imagens/icone-editar.png" alt="Ícone de editar">
+        </button></td>
+      <td> <button class="botao-excluir" routerLink="/excluirProduto/{{produto.id}}">
+          <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir">
+        </button></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,60 @@
+<section class="container editar-produtos ff-inter">
+  <header class="header">
+    <h2>Edite Produto:</h2>
+  </header>
+  <form [formGroup]="formulario" #form="ngForm">
+
+    <label for="produto">Nome</label>
+    <input type="textarea" class="input" formControlName="name" id="name" name="name"
+      placeholder="Digite o nome do produto">
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">
+        <p>O campo nome é obrigatório.</p>
+      </div>
+      <div *ngIf="name.errors?.['maxlength']">
+        <p>Este campo deve ter no máximo 60 caracteres.</p>
+      </div>
+    </div>
+
+
+    <label for="categorias">Categoria</label>
+    <select formControlName="category" name="categorias" id="categorias">
+      <option value="" disabled selected>Escolha uma categoria</option>
+      <option *ngFor="let categoria of listaCategorias" [value]="categoria.id">{{categoria.name}}</option>
+    </select>
+    <div *ngIf="category.invalid && (category.dirty || category.touched)" class="invalid-feedback">
+      <div *ngIf="category.errors?.['required']">
+        <p>O campo categoria é obrigatório.</p>
+      </div>
+    </div>
+
+
+    <label for="produto">Preço</label>
+    <input inputmode="numeric" formControlName="price" type="number" class="input" id="price" name="price"
+      placeholder="Digite o preço do produto ">
+    <div *ngIf="price.invalid && (price.dirty || price.touched)" class="invalid-feedback">
+      <div *ngIf="price.errors?.['required']">
+        <p>O campo preço é obrigatório.</p>
+      </div>
+    </div>
+
+
+    <label for="produto">Serie</label>
+    <input formControlName="serie" type="number" class="input" id="serie" name="serie"
+      placeholder="Digite a serie do produto">
+    <div *ngIf="serie.invalid && (serie.dirty || serie.touched)" class="invalid-feedback">
+      <div *ngIf="serie.errors?.['required']">
+        <p>O campo serie é obrigatório.</p>
+      </div>
+      <div *ngIf="serie.errors?.['pattern']">
+        <p>O campo serie só aceita números inteiros positivos.</p>
+      </div>
+
+    </div>
+
+  </form>
+  <div class="acoes">
+    <button [disabled]="!formulario.valid" (click)="validate()" (click)="editar_Produto()" class="botao">Salvar</button>
+    <button (click)="cancelar_edicao()" class="botao">Cancelar</button>
+  </div>
+</section>

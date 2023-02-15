@@ -1,0 +1,15 @@
+<section class="container">
+  <header class="header d-flex">
+    <h2 class="ff-inter">Categorias</h2>
+    <button routerLink="/criarCategoria" class="botao">Adicionar categoria</button>
+  </header>
+  <div class="lista-categorias" *ngIf="listaCategorias.length > 0, else semCategorias">
+    <app-categoria></app-categoria>
+  </div>
+
+</section>
+<ng-template #semCategorias>
+  <div class="ff-inter sem-categorias">
+    <p>Ainda não há categorias cadastradas!</p>
+  </div>
+</ng-template>

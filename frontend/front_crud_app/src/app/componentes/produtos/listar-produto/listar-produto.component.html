@@ -1,0 +1,15 @@
+<section class="container">
+  <header class="header d-flex">
+    <h2 class="ff-inter">Dispositivo</h2>
+    <button routerLink="/criarProduto" class="botao">Adicionar Dispositivo</button>
+  </header>
+  <div class="lista-produtos" *ngIf="listaProdutos.length > 0, else semProdutos">
+    <app-produto></app-produto>
+  </div>
+
+</section>
+<ng-template #semProdutos>
+  <div class="ff-inter sem-produtos">
+    <p>Ainda não há dispositivos cadastrados!</p>
+  </div>
+</ng-template>

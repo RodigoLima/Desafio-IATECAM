@@ -1,0 +1,23 @@
+<section class="container criar-categorias ff-inter">
+  <header class="header">
+    <h2>Adicione uma nova categoria:</h2>
+  </header>
+  <form [formGroup]="formulario" #form="ngForm">
+    <label for="categoria">Nome</label>
+    <input type="textarea" formControlName="name" class="input" id="name" name="name"
+      placeholder="Digite o nome da categoria" >
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">
+       <p>O campo nome é obrigatório.</p>
+      </div>
+      <div *ngIf="name.errors?.['maxlength']">
+        <p>Este campo deve ter no máximo 128 caracteres.</p>
+      </div>
+    </div>
+  </form>
+  <div class="acoes">
+    <button [disabled]="!formulario.valid"  (click)="validate()" (click)="criar_categoria()" class="botao">Salvar</button>
+    <button (click)="cancelar_criacao_categoria()" class="botao">Cancelar</button>
+  </div>
+
+</section>
