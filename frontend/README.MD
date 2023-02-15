@@ -31,4 +31,4 @@ Para executar esse repositório baixe-o e siga os passos abaixos:
     Para instalar as dependencias do frontend.
 
 ## Execução do BackEnd
-Para executar o frontend entre nas pastas(frontend/front_app_crud) e execute o seguinte comando: ng serve --o
+Para executar o frontend entre nas pastas frontend/front_app_crud e execute o seguinte comando: ng serve --o
