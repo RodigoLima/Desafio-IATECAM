@@ -1,3 +1,4 @@
+import { Categoria } from './../../categorias/categoria';
 import { ProdutoService } from './../produto.service';
 import { Produto } from './../produto';
 import { Component ,OnInit,Input} from '@angular/core';
@@ -16,6 +17,13 @@ export class ProdutoComponent {
     price: 1.2,
     serie: 23
   }
+
+  categoria: Categoria = {
+    id: 1,
+    name: ''
+  }
+
+  listaCategorias: Categoria[] = [];
 
   listaProdutos: Produto[] = [];
 

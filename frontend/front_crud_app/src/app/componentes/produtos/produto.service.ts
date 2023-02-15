@@ -1,7 +1,9 @@
+import { Categoria } from './../categorias/categoria';
 import { Produto } from './produto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,12 @@ export class ProdutoService {
   {
     const url = `${this.API}/deleteproductbyid/${id}`
     return this.http.delete<Produto>(url)
+  }
+
+  get_categorianame_by_id(id: Number): Observable<Categoria>
+  {
+    const url = `${this.API}/getcategorybyid/${id}`
+    return this.http.get<Categoria>(url)
   }
 
   get_by_id(id: Number): Observable<Produto>
