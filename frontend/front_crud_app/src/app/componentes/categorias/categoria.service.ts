@@ -20,11 +20,12 @@ export class CategoriaService {
     return this.http.post<Categoria>('http://127.0.0.1:8000/api/categories/createcategory', categoria);
   }
 
-  update(categoria: Categoria): Observable<Categoria>
-  {
-    const url = `${this.API}/updatecategorybyid/${categoria.id}`
-    return this.http.put<Categoria>(url,categoria)
+  update(id: Number, params: any) {
+    const url = `${this.API}/updatecategorybyid`
+    return this.http.put(`${url}/${id}`, params);
   }
+
+
 
   delete(id: Number): Observable<Categoria>
   {
