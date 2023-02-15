@@ -17,6 +17,7 @@ import { CriarProdutoComponent } from './componentes/produtos/criar-produto/cria
 import { EditarProdutoComponent } from './componentes/produtos/editar-produto/editar-produto.component';
 import { ExcluirProdutoComponent } from './componentes/produtos/excluir-produto/excluir-produto.component';
 import { ListarProdutoComponent } from './componentes/produtos/listar-produto/listar-produto.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 
 
 
@@ -32,7 +33,8 @@ import { ListarProdutoComponent } from './componentes/produtos/listar-produto/li
     CriarProdutoComponent,
     EditarProdutoComponent,
     ExcluirProdutoComponent,
-    ListarProdutoComponent
+    ListarProdutoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

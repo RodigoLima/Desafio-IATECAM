@@ -15,16 +15,16 @@ export class ProdutoService {
     return this.http.get<Produto[]>('http://127.0.0.1:8000/api/products/getallproduct',);
   }
 
-  create(categoria: Produto):Observable<Produto> {
+  create(produto: Produto):Observable<Produto> {
 
-    return this.http.post<Produto>('http://127.0.0.1:8000/api/products/createproduct', categoria);
+    return this.http.post<Produto>('http://127.0.0.1:8000/api/products/createproduct', produto);
   }
 
-  update(categoria: Produto): Observable<Produto>
-  {
-    const url = `${this.API}/updateproductbyid/${categoria.id}`
-    return this.http.put<Produto>(url,categoria)
+  update(id: Number, params: any) {
+    const url = `${this.API}/updateproductbyid`
+    return this.http.put(`${url}/${id}`, params);
   }
+
 
   delete(id: Number): Observable<Produto>
   {

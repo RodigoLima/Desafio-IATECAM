@@ -1,3 +1,4 @@
+
 import { EditarProdutoComponent } from './componentes/produtos/editar-produto/editar-produto.component';
 import { ExcluirProdutoComponent } from './componentes/produtos/excluir-produto/excluir-produto.component';
 import { CriarProdutoComponent } from './componentes/produtos/criar-produto/criar-produto.component';
@@ -15,7 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: `listarProduto`,
+    redirectTo: `listarCategoria`,
     pathMatch: 'full'
   },
   {
